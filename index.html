@@ -1,87 +1,336 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>St Matthew's Boxing Club</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="font-sans text-gray-900 bg-gray-50">
-    <!-- NAV -->
-    <header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-gray-100">
-      <div class="mx-auto max-w-7xl px-4 flex h-16 items-center justify-between">
-        <span class="font-extrabold text-xl text-green-800">St Matthew's Boxing Club</span>
-        <nav class="hidden md:flex gap-6 text-sm">
-          <a href="#programmes">Programmes</a>
-          <a href="#timetable">Timetable</a>
-          <a href="#coaches">Coaches</a>
-          <a href="#pricing">Membership</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>St Matthew's Boxing Club</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; } /* smooth anchor scrolling */
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- HERO -->
-    <section class="relative overflow-hidden bg-white py-20">
-      <div class="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-10">
-        <div>
-          <p class="uppercase text-xs font-bold text-green-800">Dublin 7 · Community Gym</p>
-          <h1 class="mt-3 text-4xl font-extrabold leading-tight">
-            Train like a boxer <span class="text-green-800">without the ego.</span>
-          </h1>
-          <p class="mt-5 text-lg text-gray-600">
-            Structured classes for beginners to competitors. Safe, technical coaching and a welcoming vibe.
-          </p>
-          <div class="mt-8 flex gap-3">
-            <a href="#join" class="bg-rose-600 text-white px-5 py-3 rounded-xl">Start 7-Day Trial – €19</a>
-            <a href="#timetable" class="border-2 border-rose-600 text-rose-600 px-5 py-3 rounded-xl">See Timetable</a>
-          </div>
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#top" class="font-extrabold text-xl text-green-800">St Matthew's Boxing Club</a>
+
+      <!-- desktop nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-green-800" href="#programmes">Programmes</a>
+        <a class="hover:text-green-800" href="#timetable">Timetable</a>
+        <a class="hover:text-green-800" href="#coaches">Coaches</a>
+        <a class="hover:text-green-800" href="#pricing">Membership</a>
+        <a class="hover:text-green-800" href="#contact">Contact</a>
+      </nav>
+
+      <!-- mobile toggle -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-gray-200" aria-label="Menu">
+        ☰
+      </button>
+    </div>
+
+    <!-- mobile drawer -->
+    <nav id="mobileNav" class="md:hidden hidden border-t border-gray-100 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm">
+        <a class="py-2" href="#programmes">Programmes</a>
+        <a class="py-2" href="#timetable">Timetable</a>
+        <a class="py-2" href="#coaches">Coaches</a>
+        <a class="py-2" href="#pricing">Membership</a>
+        <a class="py-2" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    // simple mobile menu toggle
+    const b = document.getElementById('menuBtn');
+    const m = document.getElementById('mobileNav');
+    b?.addEventListener('click', () => m.classList.toggle('hidden'));
+    // close drawer after clicking a link
+    m?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => m.classList.add('hidden')));
+  </script>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden bg-white">
+    <div class="absolute inset-0 pointer-events-none" style="
+      background: radial-gradient(900px 500px at 15% -10%, #0f513214, transparent),
+                  radial-gradient(900px 500px at 85% 110%, #e11d4814, transparent);
+    "></div>
+
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center py-16 sm:py-24">
+      <div>
+        <p class="uppercase text-xs font-bold tracking-widest text-green-800">Dublin 7 · Community Boxing Gym</p>
+        <h1 class="mt-3 text-4xl sm:text-6xl font-extrabold leading-tight">
+          Train like a boxer <span class="text-green-800">without the ego.</span>
+        </h1>
+        <p class="mt-5 text-lg text-gray-600">
+          Technical coaching for beginners, intermediates, and competitors. Safe sparring culture and top conditioning.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact" class="bg-rose-600 text-white px-6 py-3 rounded-xl font-semibold">Book Trial – €19</a>
+          <a href="#timetable" class="px-6 py-3 rounded-xl border-2 border-rose-600 text-rose-600 font-semibold">See Timetable</a>
         </div>
-        <div>
+
+        <ul class="mt-6 grid grid-cols-2 gap-2 text-sm text-gray-700 max-w-md">
+          <li>✓ Technique-first coaching</li>
+          <li>✓ Women’s classes welcome</li>
+          <li>✓ Junior boxing (10–16)</li>
+          <li>✓ 1-to-1 private sessions</li>
+        </ul>
+      </div>
+
+      <div class="relative">
+        <img
+          class="w-full h-80 sm:h-[480px] object-cover rounded-3xl shadow-2xl"
+          src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop"
+          alt="Boxing gym in Dublin"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        />
+        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow p-4 w-64">
+          <p class="text-sm font-semibold">Tonight</p>
+          <p class="text-xs text-gray-600">18:00 Beginners · 19:00 All-Levels · 20:00 Sparring</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMMES -->
+  <section id="programmes" class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-green-800">Programmes</h2>
+      <p class="mt-2 text-gray-600">Foundation to fight prep — pick your track and we’ll coach you properly.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <!-- Card 1 -->
+        <article class="group relative overflow-hidden rounded-3xl shadow hover:shadow-lg transition bg-white">
           <img
-            class="rounded-3xl shadow-2xl"
-            src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1600&auto=format&fit=crop"
-            alt="Boxing gym in Dublin"
+            src="https://images.unsplash.com/photo-1526401485004-2fda9f4a0bda?q=80&w=1200&auto=format&fit=crop"
+            alt="Beginners class"
+            class="h-56 w-full object-cover group-hover:scale-[1.02] transition"
             loading="lazy"
-            referrerpolicy="no-referrer"
           />
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRAMMES -->
-    <section id="programmes" class="py-20">
-      <div class="mx-auto max-w-7xl px-4">
-        <h2 class="text-3xl font-extrabold text-green-800">Programmes</h2>
-        <div class="grid md:grid-cols-3 gap-6 mt-8">
-          <div class="bg-white rounded-3xl shadow p-6">
+          <div class="p-6">
             <h3 class="font-bold text-lg text-green-800">Beginners Boxing</h3>
-            <p class="text-gray-600">Footwork, stance, guard, and striking basics.</p>
+            <p class="mt-2 text-sm text-gray-600">Stance, footwork, jab-cross mechanics, pad/bag rounds and defence.</p>
           </div>
-          <div class="bg-white rounded-3xl shadow p-6">
-            <h3 class="font-bold text-lg text-green-800">Conditioning</h3>
-            <p class="text-gray-600">Boxer-style circuits for speed and endurance.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="group relative overflow-hidden rounded-3xl shadow hover:shadow-lg transition bg-white">
+          <img
+            src="https://images.unsplash.com/photo-1544085311-11a028465b03?q=80&w=1200&auto=format&fit=crop"
+            alt="Conditioning"
+            class="h-56 w-full object-cover group-hover:scale-[1.02] transition"
+            loading="lazy"
+          />
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-green-800">All-Levels Conditioning</h3>
+            <p class="mt-2 text-sm text-gray-600">Boxer circuits for power, speed and engine. No experience needed.</p>
           </div>
-          <div class="bg-white rounded-3xl shadow p-6">
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group relative overflow-hidden rounded-3xl shadow hover:shadow-lg transition bg-white">
+          <img
+            src="https://images.unsplash.com/photo-1604948501466-4e9c5875a3b0?q=80&w=1200&auto=format&fit=crop"
+            alt="1-to-1 Coaching"
+            class="h-56 w-full object-cover group-hover:scale-[1.02] transition"
+            loading="lazy"
+          />
+          <div class="p-6">
             <h3 class="font-bold text-lg text-green-800">1-to-1 Coaching</h3>
-            <p class="text-gray-600">Personalised sessions to accelerate progress.</p>
+            <p class="mt-2 text-sm text-gray-600">Personalised sessions to fix habits fast. Perfect for rapid progress.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMETABLE -->
+  <section id="timetable" class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-green-800">Timetable</h2>
+      <p class="mt-2 text-gray-600">Arrive 10 minutes early if it’s your first time.</p>
+
+      <div class="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">Day</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">06:00</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">12:30</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">18:00</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">19:00</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700 uppercase tracking-wider">20:00</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Mon</td>
+              <td class="px-4 py-3">Open Gym</td><td class="px-4 py-3">—</td>
+              <td class="px-4 py-3">Beginners</td><td class="px-4 py-3">All-Levels</td><td class="px-4 py-3">Sparring</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Tue</td>
+              <td class="px-4 py-3">Open Gym</td><td class="px-4 py-3">—</td>
+              <td class="px-4 py-3">Beginners</td><td class="px-4 py-3">All-Levels</td><td class="px-4 py-3">—</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Wed</td>
+              <td class="px-4 py-3">Open Gym</td><td class="px-4 py-3">—</td>
+              <td class="px-4 py-3">Beginners</td><td class="px-4 py-3">All-Levels</td><td class="px-4 py-3">Sparring</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Thu</td>
+              <td class="px-4 py-3">Open Gym</td><td class="px-4 py-3">—</td>
+              <td class="px-4 py-3">Women’s Boxing</td><td class="px-4 py-3">All-Levels</td><td class="px-4 py-3">—</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Fri</td>
+              <td class="px-4 py-3">Open Gym</td><td class="px-4 py-3">—</td>
+              <td class="px-4 py-3">Beginners</td><td class="px-4 py-3">All-Levels</td><td class="px-4 py-3">Light Sparring</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold text-green-800">Sat</td>
+              <td class="px-4 py-3">—</td><td class="px-4 py-3">Conditioning</td>
+              <td class="px-4 py-3">—</td><td class="px-4 py-3">—</td><td class="px-4 py-3">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-3 text-xs text-gray-500">* Schedule is indicative. Bank holidays may affect times.</p>
+    </div>
+  </section>
+
+  <!-- COACHES -->
+  <section id="coaches" class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-green-800">Coaches</h2>
+      <p class="mt-2 text-gray-600">ECE, safe-contact sparring, and zero-ego culture. We coach for longevity and skill.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <article class="rounded-3xl overflow-hidden shadow bg-white">
+          <img class="h-60 w-full object-cover" src="https://images.unsplash.com/photo-1596357395104-0253f9f2d65f?q=80&w=1200&auto=format&fit=crop" alt="Coach 1" loading="lazy">
+          <div class="p-6">
+            <h3 class="font-bold text-green-800">Rob Kavanagh</h3>
+            <p class="text-sm text-gray-600">Head Coach · IABA Level 2</p>
+            <p class="mt-3 text-sm text-gray-700">15+ years coaching; cornered amateur & white-collar bouts across Ireland.</p>
+          </div>
+        </article>
+
+        <article class="rounded-3xl overflow-hidden shadow bg-white">
+          <img class="h-60 w-full object-cover" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="Coach 2" loading="lazy">
+          <div class="p-6">
+            <h3 class="font-bold text-green-800">Aoife Byrne</h3>
+            <p class="text-sm text-gray-600">Women’s Boxing Lead</p>
+            <p class="mt-3 text-sm text-gray-700">Technique-first with progressive conditioning and defence drills.</p>
+          </div>
+        </article>
+
+        <article class="rounded-3xl overflow-hidden shadow bg-white">
+          <img class="h-60 w-full object-cover" src="https://images.unsplash.com/photo-1551404973-777b1e2fdb74?q=80&w=1200&auto=format&fit=crop" alt="Coach 3" loading="lazy">
+          <div class="p-6">
+            <h3 class="font-bold text-green-800">Liam O’Connell</h3>
+            <p class="text-sm text-gray-600">S&C Coach · MSc Sport Sci</p>
+            <p class="mt-3 text-sm text-gray-700">Builds strength, speed & endurance with low injury risk.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-16 sm:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-green-800">Membership</h2>
+      <p class="mt-2 text-gray-600">Simple options. No contracts. Freeze anytime.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="rounded-3xl border border-gray-200 bg-white">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-green-800">Drop-in</h3>
+            <p class="mt-2 text-3xl font-extrabold">€12</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>✓ One class</li><li>✓ Gloves provided</li><li>✓ No booking fee</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-transparent bg-green-800 text-white shadow-lg">
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Unlimited</h3>
+            <p class="mt-2 text-3xl font-extrabold">€69/mo</p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>• All classes</li><li>• Open gym access</li><li>• Sparring eligibility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-gray-200 bg-white">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-green-800">1-to-1 Pack</h3>
+            <p class="mt-2 text-3xl font-extrabold">€199</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+              <li>✓ 3 private sessions</li><li>✓ Video feedback</li><li>✓ Custom plan</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-20 bg-gray-100">
-      <div class="mx-auto max-w-4xl px-4">
-        <h2 class="text-3xl font-extrabold text-green-800">Contact</h2>
-        <p class="mt-4">Unit 7, The Forge, Smithfield, Dublin 7</p>
-        <p class="mt-2">📞 +353 1 555 0279 · ✉️ smurray@stmatthewsboxclub.org</p>
+      <p class="mt-4 text-xs text-gray-500">Student & youth rates available. Ask at reception.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / LOCATION -->
+  <section id="contact" class="py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-6 items-start">
+      <div class="rounded-3xl overflow-hidden shadow">
+        <iframe
+          title="Map"
+          src="https://maps.google.com/maps?q=Smithfield%20Dublin%207&t=m&z=14&output=embed&iwloc=near"
+          class="w-full h-[340px] border-0"
+          loading="lazy"
+        ></iframe>
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-gray-100 bg-white py-10 text-center text-sm text-gray-600">
-      © <script>document.write(new Date().getFullYear())</script> St Matthew's Boxing Club.
-    </footer>
-  </body>
+      <div class="bg-white rounded-3xl border border-gray-200 p-6">
+        <h3 class="text-xl font-bold text-green-800">Contact</h3>
+        <p class="mt-2 text-gray-700">Unit 7, The Forge, Smithfield, Dublin 7</p>
+        <p class="mt-2 text-gray-700">📞 +353 1 555 0279 · ✉️ smurray@stmatthewsboxclub.org</p>
+
+        <h3 class="mt-6 text-xl font-bold text-green-800">Hours</h3>
+        <p class="mt-2 text-gray-700">Mon–Fri 06:00–21:00 · Sat 09:00–14:00</p>
+
+        <div class="mt-6 flex gap-3 text-sm">
+          <a class="underline" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a class="underline" href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+          <a class="underline" href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-100 bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <strong class="text-gray-900">St Matthew's Boxing Club</strong>
+          <p class="mt-1">Unit 7, The Forge, Smithfield, Dublin 7</p>
+          <p>+353 1 555 0279 · smurray@stmatthewsboxclub.org</p>
+        </div>
+        <div class="flex gap-4">
+          <a href="#programmes" class="hover:underline">Programmes</a>
+          <a href="#timetable" class="hover:underline">Timetable</a>
+          <a href="#pricing" class="hover:underline">Membership</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </div>
+      </div>
+      <p class="mt-6 text-xs">© <script>document.write(new Date().getFullYear())</script> St Matthew's Boxing Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
 </html>
